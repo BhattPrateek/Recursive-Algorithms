@@ -63,7 +63,8 @@ return adder+recursiveSum(Math.floor(n/10));
 // PowerOfTwo(9) -> false
 
 var isPowerOfTwo = function(n){
-
+var sqrt = Math.sqrt(n);
+return((sqrt%1)===0);
 };
 
 ///////////////////////////////////////////////////////////////////////
@@ -79,7 +80,16 @@ var isPowerOfTwo = function(n){
 // (For example, if the initial investment is 1000 and the interest rate is 10 percent,
 // then after one year the investment will be worth 1100, after two years 1210, after three years 1331, etc.)
 
-var invest = function(amount){
+var invest = function(amount, rate, years){
+
+var tenPee = amount*(rate);
+if (years === 0){
+  return amount;
+}
+amount = amount+tenPee;
+amount = invest(amount, rate, years-1 );
+
+return amount;
 
 };
 
