@@ -19,10 +19,21 @@
 
 // Write a recursive method called countVowels that returns the number of vowels in a given String
 // countVowels('abcedfg') ->2
-
 var countVowels = function(str){
-
+var vowelArr = ['a','e','i','o','u'];
+var counter =0;
+for(var i = 0; i < vowelArr.length; i++){
+  if(str[0] === vowelArr[i]){
+    counter += 1;
+  }
+}
+if(str.length>0){
+  counter+=(countVowels(str.substr(1)));
+}
+return counter;
 };
+
+
 
 ///////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////
