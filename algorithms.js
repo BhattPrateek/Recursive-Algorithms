@@ -63,8 +63,12 @@ return adder+recursiveSum(Math.floor(n/10));
 // PowerOfTwo(9) -> false
 
 var isPowerOfTwo = function(n){
-var sqrt = Math.sqrt(n);
-return((sqrt%1)===0);
+if(n === 1){
+  return true;
+}else if(n%1 !== 0){
+  return false;
+}
+return isPowerOfTwo(n/2);
 };
 
 ///////////////////////////////////////////////////////////////////////
@@ -108,7 +112,15 @@ return amount;
 //    console.logs: 4,5,6,7,8,9,10,9,8,7,6,5,4
 var printRangeUpDown = function(min, max){
 
+console.log(min);
+
+if(min<max){
+  printRangeUpDown(min+1, max);
+  //console.log(min);
+}
+
 };
+
 
 ///////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////
